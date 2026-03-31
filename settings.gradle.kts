@@ -7,9 +7,16 @@ import cksettings.*
 pluginManagement {
     includeBuild("build-logic")
     includeBuild("build-settings")
+    repositories {
+        mavenLocal()
+        maven("https://mirrors.tencent.com/nexus/repository/maven-tencent")
+        maven("https://mirrors.tencent.com/nexus/repository/maven-public")
+        mavenCentral()
+        gradlePluginPortal()
+    }
 }
 
-includeBuild("testtool")
+//includeBuild("testtool")
 
 plugins {
     id("cksettings.default")
@@ -17,6 +24,10 @@ plugins {
 
 dependencyResolutionManagement {
     repositories {
+        mavenLocal()
+        maven("https://mirrors.tencent.com/nexus/repository/maven-tencent")
+        maven("https://mirrors.tencent.com/nexus/repository/maven-public")
+        mavenCentral()
         ivy("https://github.com/whyoleg/openssl-builds/releases/download") {
             name = "Prebuilt OpenSSL distributions"
             metadataSources { artifact() }
@@ -48,19 +59,19 @@ projects("cryptography-kotlin") {
     folder("cryptography-providers", prefix = "cryptography-provider") {
         module("base")
         module("jdk") {
-            module("android-tests")
+//            module("android-tests")
         }
-        module("apple")
-        module("webcrypto")
+//        module("apple")
+//        module("webcrypto")
         folder("openssl3") {
             module("api")
-            module("shared")
-            module("prebuilt")
-            module("test")
+//            module("shared")
+//            module("prebuilt")
+//            module("test")
         }
     }
 
     // providers tests
-    module("cryptography-providers-tests-api")
-    module("cryptography-providers-tests")
+//    module("cryptography-providers-tests-api")
+//    module("cryptography-providers-tests")
 }

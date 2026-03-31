@@ -13,17 +13,17 @@ description = "cryptography-kotlin core API"
 
 kotlin {
     jvmTarget()
-    jsTarget()
+//    jsTarget()
     nativeTargets()
-    wasmTargets()
+//    wasmTargets()
 
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     applyDefaultHierarchyTemplate {
         common {
             group("nonJvm") {
-                withJs()
-                withWasmJs()
-                withWasmWasi()
+//                withJs()
+//                withWasmJs()
+//                withWasmWasi()
                 group("native")
             }
         }

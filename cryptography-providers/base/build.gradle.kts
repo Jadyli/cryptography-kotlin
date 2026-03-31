@@ -12,9 +12,9 @@ description = "cryptography-kotlin base provider"
 
 kotlin {
     jvmTarget()
-    jsTarget()
+//    jsTarget()
     nativeTargets()
-    wasmTargets()
+//    wasmTargets()
 
     sourceSets.commonMain.dependencies {
         api(projects.cryptographyCore)

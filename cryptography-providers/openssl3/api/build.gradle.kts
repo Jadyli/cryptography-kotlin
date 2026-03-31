@@ -34,15 +34,17 @@ kotlin {
     }
 
     targets.withType<KotlinNativeTarget>().configureEach {
-        cinterop("declarations", "common")
+        cinterop("declarations", "common") {
+            includeDirs(file("src/commonMain/cinterop/include"))
+        }
     }
 }
 
-tasks.withType<CInteropProcess>().configureEach {
-    uses(openssl.v3_0) {
-        settings.includeDirs(includeDirectory(konanTarget))
-    }
-}
+//tasks.withType<CInteropProcess>().configureEach {
+//    uses(openssl.v3_0) {
+//        settings.includeDirs(includeDirectory(konanTarget))
+//    }
+//}
 
 documentation {
     moduleName.set("cryptography-provider-openssl3")

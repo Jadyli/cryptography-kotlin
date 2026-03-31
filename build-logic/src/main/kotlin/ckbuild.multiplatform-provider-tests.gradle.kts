@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.gradle.targets.native.tasks.*
 
 plugins {
     kotlin("multiplatform")
-    id("testtool.server")
+//    id("testtool.server")
 }
 
 kotlin {

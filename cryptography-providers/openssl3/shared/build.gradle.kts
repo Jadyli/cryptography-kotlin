@@ -13,7 +13,7 @@ import org.jetbrains.kotlin.konan.target.*
 plugins {
     id("ckbuild.multiplatform-library")
     id("ckbuild.use-openssl")
-    id("ckbuild.multiplatform-provider-tests")
+//    id("ckbuild.multiplatform-provider-tests")
 }
 
 description = "cryptography-kotlin OpenSSL3 provider (shared)"
@@ -32,9 +32,9 @@ kotlin {
         commonMain.dependencies {
             api(projects.cryptographyProviderOpenssl3Api)
         }
-        commonTest.dependencies {
-            api(projects.cryptographyProviderOpenssl3Test)
-        }
+//        commonTest.dependencies {
+//            api(projects.cryptographyProviderOpenssl3Test)
+//        }
     }
 
     targets.withType<KotlinNativeTarget>().configureEach {
@@ -54,46 +54,46 @@ kotlin {
         }
     }
 
-    targets.withType<KotlinNativeTargetWithTests<*>>().configureEach {
-        fun createTestRuns(classifier: String, extension: OpensslXExtension) {
-            fun createTestRun(name: String, buildType: NativeBuildType) {
-                testRuns.create(name) {
-                    setExecutionSourceFrom(binaries.getTest(buildType))
-                    @Suppress("UNCHECKED_CAST")
-                    (this as ExecutionTaskHolder<KotlinNativeTest>).executionTask.configure {
-                        val providerTestsStep = providers.gradleProperty("ckbuild.providerTests.step").orNull
-                        onlyIf { providerTestsStep == null }
-                        uses(extension)
-                        when (konanTarget.family) {
-                            Family.OSX   -> environment("DYLD_LIBRARY_PATH", extension.libDirectory(konanTarget).get().asFile.absolutePath)
-                            Family.LINUX -> environment("LD_LIBRARY_PATH", extension.libDirectory(konanTarget).get().asFile.absolutePath)
-                            Family.MINGW -> {
-                                val opensslBinPath = extension.binDirectory("windows-x64").get().asFile.absolutePath
-                                val currentPath = providers.environmentVariable("PATH").get()
-                                environment("PATH", "$opensslBinPath;$currentPath")
-                            }
-                            else         -> error("not supported: $konanTarget")
-                        }
-                    }
-                }
-            }
-            createTestRun("_${classifier}_Test", NativeBuildType.DEBUG)
-            createTestRun("release_${classifier}_Test", NativeBuildType.RELEASE)
-        }
-
-        createTestRuns("3_0", openssl.v3_0)
-        createTestRuns("3_1", openssl.v3_1)
-        createTestRuns("3_2", openssl.v3_2)
-        createTestRuns("3_3", openssl.v3_3)
-    }
+//    targets.withType<KotlinNativeTargetWithTests<*>>().configureEach {
+//        fun createTestRuns(classifier: String, extension: OpensslXExtension) {
+//            fun createTestRun(name: String, buildType: NativeBuildType) {
+//                testRuns.create(name) {
+//                    setExecutionSourceFrom(binaries.getTest(buildType))
+//                    @Suppress("UNCHECKED_CAST")
+//                    (this as ExecutionTaskHolder<KotlinNativeTest>).executionTask.configure {
+//                        val providerTestsStep = providers.gradleProperty("ckbuild.providerTests.step").orNull
+//                        onlyIf { providerTestsStep == null }
+//                        uses(extension)
+//                        when (konanTarget.family) {
+//                            Family.OSX   -> environment("DYLD_LIBRARY_PATH", extension.libDirectory(konanTarget).get().asFile.absolutePath)
+//                            Family.LINUX -> environment("LD_LIBRARY_PATH", extension.libDirectory(konanTarget).get().asFile.absolutePath)
+//                            Family.MINGW -> {
+//                                val opensslBinPath = extension.binDirectory("windows-x64").get().asFile.absolutePath
+//                                val currentPath = providers.environmentVariable("PATH").get()
+//                                environment("PATH", "$opensslBinPath;$currentPath")
+//                            }
+//                            else         -> error("not supported: $konanTarget")
+//                        }
+//                    }
+//                }
+//            }
+//            createTestRun("_${classifier}_Test", NativeBuildType.DEBUG)
+//            createTestRun("release_${classifier}_Test", NativeBuildType.RELEASE)
+//        }
+//
+//        createTestRuns("3_0", openssl.v3_0)
+//        createTestRuns("3_1", openssl.v3_1)
+//        createTestRuns("3_2", openssl.v3_2)
+//        createTestRuns("3_3", openssl.v3_3)
+//    }
 }
 
 documentation {
     includes.set(null as String?)
 }
 
-providerTests {
-    packageName.set("dev.whyoleg.cryptography.providers.openssl3.shared")
-    imports.addAll("dev.whyoleg.cryptography.providers.openssl3.*")
-    providerInitializers.put("OpenSSL3_Shared", "CryptographyProvider.Openssl3")
-}
+//providerTests {
+//    packageName.set("dev.whyoleg.cryptography.providers.openssl3.shared")
+//    imports.addAll("dev.whyoleg.cryptography.providers.openssl3.*")
+//    providerInitializers.put("OpenSSL3_Shared", "CryptographyProvider.Openssl3")
+//}

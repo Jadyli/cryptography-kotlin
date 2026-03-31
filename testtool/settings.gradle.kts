@@ -6,6 +6,13 @@ import cksettings.*
 
 pluginManagement {
     includeBuild("../build-settings")
+    repositories {
+        mavenLocal()
+        maven("https://mirrors.tencent.com/nexus/repository/maven-tencent")
+        maven("https://mirrors.tencent.com/nexus/repository/maven-public")
+        mavenCentral()
+        gradlePluginPortal()
+    }
 }
 
 plugins {
@@ -13,6 +20,12 @@ plugins {
 }
 
 dependencyResolutionManagement {
+    repositories {
+        mavenLocal()
+        maven("https://mirrors.tencent.com/nexus/repository/maven-tencent")
+        maven("https://mirrors.tencent.com/nexus/repository/maven-public")
+        mavenCentral()
+    }
     versionCatalogs.named("libs") {
         from(files("../gradle/libs.versions.toml"))
     }

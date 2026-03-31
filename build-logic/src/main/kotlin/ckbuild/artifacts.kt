@@ -15,9 +15,9 @@ val artifacts
         "cryptography-core",
         "cryptography-provider-base",
         "cryptography-provider-jdk",
-        "cryptography-provider-apple",
-        "cryptography-provider-webcrypto",
+//        "cryptography-provider-apple",
+//        "cryptography-provider-webcrypto",
         "cryptography-provider-openssl3-api",
-        "cryptography-provider-openssl3-shared",
-        "cryptography-provider-openssl3-prebuilt",
+//        "cryptography-provider-openssl3-shared",
+//        "cryptography-provider-openssl3-prebuilt",
     )

@@ -60,6 +60,7 @@ class OpensslXExtension(internal val directory: Provider<Directory>) {
         KonanTarget.ANDROID_X86             -> "android-x86"
         KonanTarget.ANDROID_ARM32           -> "android-arm32"
         KonanTarget.ANDROID_ARM64           -> "android-arm64"
+        KonanTarget.OHOS_ARM64              -> "ohos-arm64"
         else -> error("$target is not supported by OpenSSL")
     }
 }

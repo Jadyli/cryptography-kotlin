@@ -13,9 +13,9 @@ description = "cryptography-kotlin ASN.1 (DER) API"
 
 kotlin {
     jvmTarget()
-    jsTarget()
+//    jsTarget()
     nativeTargets()
-    wasmTargets()
+//    wasmTargets()
 
     sourceSets {
         commonMain.dependencies {

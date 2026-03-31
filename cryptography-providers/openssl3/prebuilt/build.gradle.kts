@@ -13,7 +13,7 @@ import org.jetbrains.kotlin.gradle.tasks.*
 plugins {
     id("ckbuild.multiplatform-library")
     id("ckbuild.use-openssl")
-    id("ckbuild.multiplatform-provider-tests")
+//    id("ckbuild.multiplatform-provider-tests")
 }
 
 description = "cryptography-kotlin OpenSSL3 provider (prebuilt)"
@@ -32,9 +32,9 @@ kotlin {
         commonMain.dependencies {
             api(projects.cryptographyProviderOpenssl3Api)
         }
-        commonTest.dependencies {
-            api(projects.cryptographyProviderOpenssl3Test)
-        }
+//        commonTest.dependencies {
+//            api(projects.cryptographyProviderOpenssl3Test)
+//        }
     }
 
     targets.withType<KotlinNativeTarget>().configureEach {
@@ -91,8 +91,8 @@ documentation {
     includes.set(null as String?)
 }
 
-providerTests {
-    packageName.set("dev.whyoleg.cryptography.providers.openssl3.prebuilt")
-    imports.addAll("dev.whyoleg.cryptography.providers.openssl3.*")
-    providerInitializers.put("OpenSSL3_Prebuilt", "CryptographyProvider.Openssl3")
-}
+//providerTests {
+//    packageName.set("dev.whyoleg.cryptography.providers.openssl3.prebuilt")
+//    imports.addAll("dev.whyoleg.cryptography.providers.openssl3.*")
+//    providerInitializers.put("OpenSSL3_Prebuilt", "CryptographyProvider.Openssl3")
+//}

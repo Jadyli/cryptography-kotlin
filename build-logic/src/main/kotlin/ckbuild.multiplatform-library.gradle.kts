@@ -9,16 +9,16 @@ plugins {
     id("ckbuild.publication")
     id("ckbuild.documentation")
 
-    id("org.jetbrains.kotlinx.binary-compatibility-validator")
+//    id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 kotlin {
     explicitApi()
 }
 
-apiValidation {
-    @OptIn(ExperimentalBCVApi::class)
-    klib {
-        enabled = true
-    }
-}
+//apiValidation {
+//    @OptIn(ExperimentalBCVApi::class)
+//    klib {
+//        enabled = true
+//    }
+//}

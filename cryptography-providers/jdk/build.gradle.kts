@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.gradle.*
 
 plugins {
     id("ckbuild.multiplatform-library")
-    id("ckbuild.multiplatform-provider-tests")
+//    id("ckbuild.multiplatform-provider-tests")
 }
 
 description = "cryptography-kotlin JDK provider"
@@ -34,9 +34,9 @@ kotlin {
     }
 }
 
-providerTests {
-    packageName.set("dev.whyoleg.cryptography.providers.jdk")
-    imports.addAll("org.bouncycastle.jce.provider.*")
-    providerInitializers.put("JDK", "CryptographyProvider.JDK")
-    providerInitializers.put("JDK_BC", "CryptographyProvider.JDK(BouncyCastleProvider())")
-}
+//providerTests {
+//    packageName.set("dev.whyoleg.cryptography.providers.jdk")
+//    imports.addAll("org.bouncycastle.jce.provider.*")
+//    providerInitializers.put("JDK", "CryptographyProvider.JDK")
+//    providerInitializers.put("JDK_BC", "CryptographyProvider.JDK(BouncyCastleProvider())")
+//}

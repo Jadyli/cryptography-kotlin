@@ -13,9 +13,9 @@ description = "cryptography-kotlin ASN.1 modules"
 
 kotlin {
     jvmTarget()
-    jsTarget()
+//    jsTarget()
     nativeTargets()
-    wasmTargets()
+//    wasmTargets()
 
     sourceSets {
         commonMain.dependencies {

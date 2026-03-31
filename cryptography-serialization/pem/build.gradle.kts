@@ -12,9 +12,9 @@ description = "cryptography-kotlin PEM API"
 
 kotlin {
     jvmTarget()
-    jsTarget()
+//    jsTarget()
     nativeTargets()
-    wasmTargets()
+//    wasmTargets()
 
     sourceSets {
         commonMain.dependencies {

@@ -12,12 +12,11 @@ plugins {
 
 description = "cryptography-kotlin BigInt API"
 
-@OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     jvmTarget()
-    jsTarget()
+//    jsTarget()
     nativeTargets()
-    wasmTargets()
+//    wasmTargets()
 
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
@@ -27,14 +26,14 @@ kotlin {
         common {
             group("nonJvm") {
                 // js and wasmJs
-                group("jsAndWasmJs") {
-                    withJs()
-                    withWasmJs()
-                }
+//                group("jsAndWasmJs") {
+//                    withJs()
+//                    withWasmJs()
+//                }
                 // all native targets + wasmWasi
                 group("nativeAndWasmWasi") {
                     group("native")
-                    withWasmWasi()
+//                    withWasmWasi()
                 }
             }
         }
