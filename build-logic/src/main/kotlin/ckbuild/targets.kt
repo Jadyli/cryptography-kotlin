@@ -42,10 +42,10 @@ fun KotlinMultiplatformExtension.nativeTargets() {
     appleTargets()
 //    desktopTargets()
 
-    androidNativeX64()
-    androidNativeX86()
-    androidNativeArm64()
-    androidNativeArm32()
+//    androidNativeX64()
+//    androidNativeX86()
+//    androidNativeArm64()
+//    androidNativeArm32()
 
     ohosArm64()
 }

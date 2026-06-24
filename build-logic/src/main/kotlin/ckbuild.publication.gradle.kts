@@ -42,6 +42,19 @@ mavenPublishing {
     }
 }
 
+publishing {
+    repositories {
+        maven {
+            name = "aliyun"
+            url = uri("https://packages.aliyun.com/66b7f208953179b1ec5f5db8/maven/2486646-snapshot-3qr5na")
+            credentials {
+                username = "66b7e3a18043c5959c0c01e2"
+                password = "no2udBiPX]2("
+            }
+        }
+    }
+}
+
 // we ignore the singing requirement because:
 // * we should be able to run `publishToMavenLocal` without signing;
 // * signing is needed to Maven Central only, and it will anyway validate that the signature is present;

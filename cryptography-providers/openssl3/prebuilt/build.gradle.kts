@@ -20,7 +20,8 @@ description = "cryptography-kotlin OpenSSL3 provider (prebuilt)"
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    nativeTargets()
+    appleTargets()
+    desktopTargets()
 
     compilerOptions {
         optIn.addAll(
